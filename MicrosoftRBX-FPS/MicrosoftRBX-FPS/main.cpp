@@ -575,7 +575,7 @@ void init()
         if (currentHWND)
         {
             std::string getTitle = getWindowTitle(currentHWND);
-            if (getTitle == "Roblox")
+            if (getTitle == "Roblox" || getTitle == "Fluster")
             {
                 robloxHWND = currentHWND;
                 system("cls");
