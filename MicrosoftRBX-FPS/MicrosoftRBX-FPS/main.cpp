@@ -130,8 +130,8 @@ void fixCursor(HWND handle)
 
             if (isFullscreen)
             {
-                int fullscreenCenterX = GetSystemMetrics(SM_CXSCREEN) / 2;
-                int fullscreenCenterY = GetSystemMetrics(SM_CYSCREEN) / 2;
+                int fullscreenCenterX = GetSystemMetrics(SM_CXVIRTUALSCREEN) / 2;
+                int fullscreenCenterY = GetSystemMetrics(SM_CYVIRTUALSCREEN) / 2;
                 
                 confineRect.left = fullscreenCenterX - 1;
                 confineRect.top = fullscreenCenterY - 1;
@@ -160,10 +160,10 @@ void fixCursor(HWND handle)
 
             if (isFullscreen)
             {
-                confineRect.left = 1;
-                confineRect.top = 4;
-                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1;
-                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1;
+                confineRect.left = GetSystemMetrics(SM_XVIRTUALSCREEN) + 1;
+                confineRect.top = GetSystemMetrics(SM_YVIRTUALSCREEN) + 4;
+                confineRect.right = GetSystemMetrics(SM_CXVIRTUALSCREEN) - 1;
+                confineRect.bottom = GetSystemMetrics(SM_CYVIRTUALSCREEN) - 1;
             }
 
             ClipCursor(&confineRect);
@@ -187,10 +187,10 @@ void fixCursor(HWND handle)
 
             if (isFullscreen)
             {
-                confineRect.left = 1;
-                confineRect.top = 4;
-                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1;
-                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1;
+                confineRect.left = GetSystemMetrics(SM_XVIRTUALSCREEN) + 1;
+                confineRect.top = GetSystemMetrics(SM_YVIRTUALSCREEN) + 4;
+                confineRect.right = GetSystemMetrics(SM_CXVIRTUALSCREEN) - 1;
+                confineRect.bottom = GetSystemMetrics(SM_CYVIRTUALSCREEN) - 1;
             }
 
             if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
